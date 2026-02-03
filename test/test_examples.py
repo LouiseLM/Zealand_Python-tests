@@ -5,8 +5,9 @@ def test_pass():
     assert 1 + 1 == 2
 
 
+@pytest.mark.xfail
 def test_fail():
-    # Denne test vil fejle
+    # Denne test vil fejle, men det er forventet
     assert 1 * 1 == 3
 
 
@@ -14,8 +15,9 @@ def test_fail():
 def test_skip():
     assert False # failed test bliver ignoreret
     raise RuntimeError("Test crashede med vilje") # crash bliver også ignoreret
+    
 
-
+@pytest.mark.skip(reason="Springes over med vilje")
 def test_crash():
     # Denne test crasher med en exception
     raise RuntimeError("Test crashede med vilje")
