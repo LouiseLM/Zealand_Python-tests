@@ -1,4 +1,5 @@
 import pytest
+import random
 
 def test_pass():
     # Denne test vil passere
@@ -23,3 +24,12 @@ def test_crash():
     raise RuntimeError("Test crashede med vilje")
 
     assert False # failed test bliver ignoreret
+
+
+def test_within_range():
+    # Given
+    num = 1 + (random.randint(1,9))
+
+    # When
+    # Then
+    assert 1 <= num <= 10
